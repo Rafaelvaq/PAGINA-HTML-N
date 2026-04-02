@@ -1,0 +1,851 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Cumpleaños, Preciosa Te amo</title>
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      font-family: "Georgia", serif;
+      background:
+        radial-gradient(circle at top, rgba(88,53,140,0.45), transparent 30%),
+        radial-gradient(circle at bottom, rgba(255,215,130,0.08), transparent 25%),
+        radial-gradient(circle at top, #2b1d4a, #120a24 65%, #080410);
+      color:#f8e8b0;
+      overflow-x:hidden;
+      min-height:100vh;
+    }
+
+    .stars,
+    .hearts{
+      position:fixed;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      overflow:hidden;
+      z-index:0;
+      pointer-events:none;
+    }
+
+    .star{
+      position:absolute;
+      width:3px;
+      height:3px;
+      background:#fff2b2;
+      border-radius:50%;
+      opacity:.8;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    .heart{
+      position:absolute;
+      bottom:-30px;
+      color:rgba(255, 191, 214, 0.45);
+      font-size:18px;
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes twinkle{
+      0%,100%{opacity:.2; transform:scale(1);}
+      50%{opacity:1; transform:scale(1.8);}
+    }
+
+    @keyframes floatUp{
+      0%{
+        transform:translateY(0) translateX(0) rotate(0deg);
+        opacity:0;
+      }
+      15%{
+        opacity:1;
+      }
+      100%{
+        transform:translateY(-110vh) translateX(20px) rotate(20deg);
+        opacity:0;
+      }
+    }
+
+    .container{
+      position:relative;
+      z-index:2;
+      width:92%;
+      max-width:950px;
+      margin:0 auto;
+      padding:30px 0 60px;
+    }
+
+    .card{
+      background: rgba(20, 10, 35, 0.84);
+      border:1px solid rgba(248, 232, 176, 0.25);
+      box-shadow:
+        0 0 25px rgba(255, 215, 130, 0.12),
+        0 10px 30px rgba(0,0,0,0.22);
+      border-radius:22px;
+      padding:28px;
+      margin:22px 0;
+      backdrop-filter: blur(4px);
+      animation: aparecer .8s ease;
+    }
+
+    @keyframes aparecer{
+      from{opacity:0; transform:translateY(20px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+
+    .hero{
+      text-align:center;
+      padding:45px 25px;
+    }
+
+    .hero h1{
+      font-size:2.3rem;
+      color:#ffd86b;
+      margin-bottom:12px;
+      text-shadow:0 0 12px rgba(255,216,107,.25);
+    }
+
+    .hero p{
+      font-size:1.1rem;
+      color:#f6e7b5;
+      line-height:1.7;
+      margin-bottom:20px;
+    }
+
+    .photo-frame{
+      width:240px;
+      height:240px;
+      margin:22px auto 12px;
+      padding:6px;
+      border-radius:50%;
+      background:linear-gradient(135deg, #f4d67a, #a97b23, #f7e5a2);
+      box-shadow:
+        0 0 25px rgba(212,175,55,.35),
+        0 0 50px rgba(255,216,107,.08);
+    }
+
+    .latin{
+      text-align:center;
+      font-style:italic;
+      color:#ffd86b;
+      line-height:1.8;
+      margin:14px auto 6px;
+      max-width:700px;
+    }
+
+    .latin small{
+      display:block;
+      color:#fff3cf;
+      margin-top:6px;
+      font-style:normal;
+    }
+
+    .btn{
+      background: linear-gradient(135deg, #c89b3c, #f4d67a);
+      color:#2a173c;
+      border:none;
+      padding:13px 22px;
+      border-radius:14px;
+      font-weight:bold;
+      font-size:1rem;
+      cursor:pointer;
+      margin:8px;
+      box-shadow:0 6px 18px rgba(0,0,0,.25);
+      transition:.25s;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px) scale(1.03);
+      box-shadow:
+        0 0 18px rgba(255,216,107,.35),
+        0 6px 18px rgba(0,0,0,.25);
+    }
+
+    h2{
+      color:#ffd86b;
+      margin-bottom:15px;
+      text-align:center;
+      font-size:1.8rem;
+      text-shadow:0 0 8px rgba(255,216,107,.12);
+    }
+
+    .hidden{
+      display:none;
+      margin-top:18px;
+      animation: fadeIn .8s ease;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0; transform:translateY(15px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+
+    .letter{
+      line-height:1.9;
+      font-size:1.08rem;
+      color:#fff3cf;
+      text-align:justify;
+    }
+
+    .reasons{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:14px;
+      margin-top:15px;
+    }
+
+    .reason{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,216,107,0.16);
+      border-radius:16px;
+      padding:16px;
+      color:#fff3cf;
+      line-height:1.6;
+      box-shadow:0 0 10px rgba(255,216,107,0.05);
+      transition:.25s;
+    }
+
+    .reason:hover{
+      transform:translateY(-3px);
+      box-shadow:0 0 16px rgba(255,216,107,0.12);
+    }
+
+    .surprises{
+      text-align:center;
+    }
+
+    .surprise-box{
+      background:rgba(255,255,255,0.05);
+      border-radius:16px;
+      padding:18px;
+      margin-top:12px;
+      color:#fff3cf;
+      line-height:1.8;
+      border:1px solid rgba(255,216,107,0.15);
+      text-align:left;
+    }
+
+    .timeline{
+      position:relative;
+      margin-top:15px;
+      padding-left:18px;
+    }
+
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:8px;
+      top:0;
+      bottom:0;
+      width:3px;
+      background:#d4af37;
+      border-radius:10px;
+      box-shadow:0 0 12px rgba(255,216,107,.18);
+    }
+
+    .moment{
+      position:relative;
+      margin:18px 0 18px 18px;
+      background:rgba(255,255,255,0.05);
+      padding:16px;
+      border-radius:14px;
+      color:#fff3cf;
+      border:1px solid rgba(255,216,107,0.14);
+      transition:.25s;
+    }
+
+    .moment:hover{
+      transform:translateX(3px);
+      box-shadow:0 0 14px rgba(255,216,107,.10);
+    }
+
+    .moment::before{
+      content:"";
+      position:absolute;
+      left:-18px;
+      top:18px;
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:#ffd86b;
+      box-shadow:0 0 10px rgba(255,216,107,.5);
+    }
+
+    .final-message{
+      text-align:center;
+      font-size:1.15rem;
+      line-height:1.9;
+      color:#fff3cf;
+    }
+
+    .signature{
+      margin-top:20px;
+      text-align:center;
+      font-size:1.3rem;
+      color:#ffd86b;
+    }
+
+    .music-note{
+      text-align:center;
+      font-size:.95rem;
+      color:#e9d9a6;
+      margin-top:12px;
+      opacity:.9;
+    }
+
+    .quote{
+      text-align:center;
+      font-style:italic;
+      color:#ffe8a3;
+      margin-top:12px;
+      line-height:1.7;
+    }
+
+    .sparkle-line{
+      width:120px;
+      height:2px;
+      margin:18px auto;
+      background:linear-gradient(to right, transparent, #ffd86b, transparent);
+      box-shadow:0 0 12px rgba(255,216,107,.25);
+    }
+
+    .magic-name{
+      position:relative;
+      width:100%;
+      height:100%;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      background:
+        radial-gradient(circle at center, rgba(255,216,107,0.18), rgba(27,16,45,0.96) 58%),
+        radial-gradient(circle, #24113d, #12071f);
+      overflow:hidden;
+      text-align:center;
+      border:4px solid rgba(20, 10, 35, 0.85);
+      box-shadow: inset 0 0 25px rgba(255,216,107,0.12);
+    }
+
+    .magic-name::before{
+      content:"";
+      position:absolute;
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,216,107,0.18), transparent 70%);
+      animation:auraPulse 3s ease-in-out infinite;
+    }
+
+    .typing-name{
+      display:flex;
+      gap:2px;
+      z-index:2;
+    }
+
+    .typing-name span{
+      display:inline-block;
+      font-size:42px;
+      color:#ffd86b;
+      font-weight:bold;
+      letter-spacing:2px;
+      opacity:0;
+      transform:translateY(12px) scale(.8);
+      text-shadow:
+        0 0 6px rgba(255,216,107,0.7),
+        0 0 16px rgba(255,216,107,0.45),
+        0 0 30px rgba(255,216,107,0.25);
+      animation: letterSpell .5s forwards, glowPulse 2.5s ease-in-out infinite;
+    }
+
+    .typing-name span:nth-child(1){ animation-delay:0.2s, 2.2s; }
+    .typing-name span:nth-child(2){ animation-delay:0.5s, 2.4s; }
+    .typing-name span:nth-child(3){ animation-delay:0.8s, 2.6s; }
+    .typing-name span:nth-child(4){ animation-delay:1.1s, 2.8s; }
+    .typing-name span:nth-child(5){ animation-delay:1.4s, 3s; }
+
+    .magic-sub{
+      margin-top:8px;
+      font-size:14px;
+      color:#fff3cf;
+      font-style:italic;
+      letter-spacing:1px;
+      z-index:2;
+    }
+
+    .spark{
+      position:absolute;
+      color:#ffe8a3;
+      text-shadow:0 0 10px rgba(255,216,107,0.8);
+      animation:floatSpark 4s linear infinite;
+      opacity:.9;
+      z-index:2;
+    }
+
+    .spark1{ top:22%; left:24%; font-size:18px; animation-delay:0s; }
+    .spark2{ top:30%; right:22%; font-size:15px; animation-delay:1s; }
+    .spark3{ bottom:25%; left:28%; font-size:20px; animation-delay:2s; }
+    .spark4{ bottom:20%; right:25%; font-size:16px; animation-delay:3s; }
+    .spark5{ top:14%; left:46%; font-size:14px; animation-delay:1.5s; }
+    .spark6{ bottom:14%; right:44%; font-size:18px; animation-delay:2.5s; }
+
+    @keyframes letterSpell{
+      0%{
+        opacity:0;
+        transform:translateY(12px) scale(.8);
+        filter:blur(6px);
+      }
+      100%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+        filter:blur(0);
+      }
+    }
+
+    @keyframes glowPulse{
+      0%,100%{
+        transform:scale(1);
+        text-shadow:
+          0 0 6px rgba(255,216,107,0.7),
+          0 0 16px rgba(255,216,107,0.45),
+          0 0 30px rgba(255,216,107,0.25);
+      }
+      50%{
+        transform:scale(1.06);
+        text-shadow:
+          0 0 10px rgba(255,216,107,1),
+          0 0 22px rgba(255,216,107,0.75),
+          0 0 40px rgba(255,216,107,0.45);
+      }
+    }
+
+    @keyframes floatSpark{
+      0%{
+        transform:translateY(0px) scale(1) rotate(0deg);
+        opacity:.4;
+      }
+      50%{
+        transform:translateY(-10px) scale(1.15) rotate(8deg);
+        opacity:1;
+      }
+      100%{
+        transform:translateY(0px) scale(1) rotate(0deg);
+        opacity:.4;
+      }
+    }
+
+    @keyframes auraPulse{
+      0%,100%{
+        transform:scale(1);
+        opacity:.5;
+      }
+      50%{
+        transform:scale(1.12);
+        opacity:.9;
+      }
+    }
+
+    .love-counter{
+      margin:18px auto 10px;
+      max-width:700px;
+      text-align:center;
+      padding:18px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,216,107,0.16);
+      box-shadow:0 0 14px rgba(255,216,107,0.08);
+    }
+
+    .counter-title{
+      color:#ffd86b;
+      font-size:1rem;
+      margin-bottom:14px;
+      line-height:1.6;
+    }
+
+    .counter-boxes{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .counter-item{
+      min-width:95px;
+      padding:14px 10px;
+      border-radius:14px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,216,107,0.14);
+      box-shadow:0 0 10px rgba(255,216,107,0.05);
+    }
+
+    .counter-item span{
+      display:block;
+      font-size:1.8rem;
+      font-weight:bold;
+      color:#ffd86b;
+      text-shadow:0 0 10px rgba(255,216,107,.18);
+    }
+
+    .counter-item small{
+      display:block;
+      margin-top:6px;
+      color:#fff3cf;
+      font-size:.9rem;
+    }
+
+    .counter-message{
+      margin-top:14px;
+      color:#ffe8a3;
+      font-style:italic;
+      line-height:1.6;
+    }
+
+    @media(max-width:600px){
+      .hero h1{ font-size:1.8rem; }
+      .photo-frame{ width:190px; height:190px; }
+      .card{ padding:20px; }
+      .latin{ font-size:.95rem; }
+      .typing-name span{ font-size:34px; }
+      .magic-sub{ font-size:12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+  <div class="hearts" id="hearts"></div>
+
+  <div class="container">
+
+    <section class="card hero">
+      <h1>✨ Feliz Cumpleaños, Mi amor Te amo mucho ✨</h1>
+      <p>
+        Hoy me gustaria poder estar a tu lado en este dia tan especial y darte mucho amor 💛
+      </p>
+
+      <div class="photo-frame">
+        <div class="magic-name">
+          <span class="spark spark1">✦</span>
+          <span class="spark spark2">✧</span>
+          <span class="spark spark3">✨</span>
+          <span class="spark spark4">✦</span>
+          <span class="spark spark5">✧</span>
+          <span class="spark spark6">✨</span>
+
+          <div class="typing-name">
+            <span>A</span>
+            <span>y</span>
+            <span>l</span>
+            <span>i</span>
+            <span>n</span>
+          </div>
+
+          <div class="magic-sub">Mi hechizo favorito</div>
+        </div>
+      </div>
+
+      <p class="latin">
+        "Tu es causa gaudii mei, lux in tenebris, et amor quem semper custodiam."
+        <small>Eres la causa de mi alegría, la luz en la oscuridad y el amor que siempre cuidaré.</small>
+      </p>
+
+      <div class="love-counter">
+        <div class="counter-title">✨ Nuestra historia comenzó el 23 de junio de 2024 ✨</div>
+        <div class="counter-boxes">
+          <div class="counter-item">
+            <span id="loveDays">0</span>
+            <small>días juntos</small>
+          </div>
+          <div class="counter-item">
+            <span id="loveMonths">0</span>
+            <small>meses</small>
+          </div>
+          <div class="counter-item">
+            <span id="loveExtraDays">0</span>
+            <small>días extra</small>
+          </div>
+        </div>
+        <div class="counter-message" id="loveMessage">
+          Gracias por ser parte de mi vida 💛
+        </div>
+      </div>
+
+      <div class="love-counter">
+        <div class="counter-title">🕯️ Falta para cumplir 2 años juntos 🕯️</div>
+        <div class="counter-boxes">
+          <div class="counter-item">
+            <span id="remainingDays">0</span>
+            <small>días</small>
+          </div>
+          <div class="counter-item">
+            <span id="remainingHours">0</span>
+            <small>horas</small>
+          </div>
+          <div class="counter-item">
+            <span id="remainingMinutes">0</span>
+            <small>minutos</small>
+          </div>
+        </div>
+        <div class="counter-message" id="anniversaryMessage">
+          Contando los días para seguir escribiendo nuestra historia ✨
+        </div>
+      </div>
+
+      <div class="sparkle-line"></div>
+
+      <p class="quote">
+        "Si existiera un hechizo para la felicidad, seguramente llevaría tu nombre."
+      </p>
+
+      <button class="btn" onclick="mostrarSeccion('carta')">Abrir carta mágica 💌</button>
+    </section>
+
+    <section id="carta" class="card hidden">
+      <h2>💌 Carta de cumpleaños</h2>
+      <div class="letter">
+        <p>
+          Mi amor, hoy quiero dedicarte unas palabras desde lo más profundo de mi corazón.
+          En este día tan especial quiero recordarte lo increíble que eres, lo hermosa que eres,
+          y lo feliz que me hace tenerte en mi vida.
+        </p>
+        <br>
+        <p>
+          Desde que llegaste, mis días tienen más luz, más alegría y más sentido.
+          Eres esa persona que hace que todo se sienta más bonito, más especial y más interesante.
+          Tu sonrisa, tu forma de ser, tu cariño, tu esencia, tu manera de amar hacen que te ame cada día más.
+        </p>
+        <br>
+        <p>
+          Hoy no solo te felicito por tu cumpleaños, celebro la excelente persona que eres, celebro la suerte de coincidir contigo,
+          y celebro cada momento que hemos vivido juntos. Deseo de todo corazón que te la pases bien hoy aun que no podamos vernos
+          te traiga muchísima felicidad, salud, paz, sueños cumplidos y momentos hermosos.
+        </p>
+        <br>
+        <p>
+          Quiero seguir acompañándote, seguir creando recuerdos contigo y seguir demostrándote cuánto te amo.
+          Para mí eres alguien verdaderamente única, especial e irremplazable.
+        </p>
+        <br>
+        <p>
+          Feliz cumpleaños, mi tlacuachita. Gracias por ser tú y por hacer mi vida mucho más bonita y especial.
+        </p>
+      </div>
+
+      <div style="text-align:center; margin-top:22px;">
+        <button class="btn" onclick="mostrarSeccion('razones')">Ver razones por las que te amo ✨</button>
+      </div>
+    </section>
+
+    <section id="razones" class="card hidden">
+      <h2>🪄 Razones por las que te amo</h2>
+      <div class="reasons">
+        <div class="reason">1. Porque tu sonrisa ilumina hasta mis días más difíciles.</div>
+        <div class="reason">2. Porque contigo todo se siente más bonito y más tranquilo.</div>
+        <div class="reason">3. Porque eres cariñosa, especial y única.</div>
+        <div class="reason">4. Porque tu forma de querer me hace sentir amado.</div>
+        <div class="reason">5. Porque eres de esas personas que siempre ayudan a los demas.</div>
+        <div class="reason">6. Porque cuando estoy contigo el tiempo se detiene.</div>
+        <div class="reason">7. Porque contigo los momentos simples se vuelven inolvidables.</div>
+        <div class="reason">8. Porque me haces sentir paz, alegría y amor al mismo tiempo.</div>
+        <div class="reason">9. Porque admiro tu forma de ser y tu esencia tan bonita.</div>
+        <div class="reason">10. Porque tu cumpleaños también es un día especial para mí, ya que celebro la excelente mujer que eres.</div>
+        <div class="reason">11. Porque eres mi lugar favorito y seguro.</div>
+        <div class="reason">12. Porque eres la persona que quiero tener a mi lado cuando siento que ya no puedo mas. ✨</div>
+      </div>
+
+      <div style="text-align:center; margin-top:22px;">
+        <button class="btn" onclick="mostrarSeccion('sorpresas')">Abrir sorpresas 🎁</button>
+      </div>
+    </section>
+
+    <section id="sorpresas" class="card hidden">
+      <h2>🎁 Sorpresas mágicas</h2>
+      <div class="surprises">
+        <button class="btn" onclick="toggleBox('s1')">Mi platica favorita 🎶</button>
+        <button class="btn" onclick="toggleBox('s2')">Mi recuerdo 📸</button>
+        <button class="btn" onclick="toggleBox('s3')">Lo que deseo para ti 🌙</button>
+        <button class="btn" onclick="toggleBox('s4')">Mi promesa para ti 💖</button>
+
+        <div id="s1" class="surprise-box hidden">
+          La primera cita se me hizo muy interesante e inolvidable la platica que tu vimos sobre lo que cada uno queria y esperaba de su pareja
+          <br><br>
+        </div>
+
+        <div id="s2" class="surprise-box hidden">
+          Uno de mis recuerdos favoritos es cuando nos quedamos hasta tarde simplemente platicando en la plaza civica despues de salir de la universidad
+        </div>
+
+        <div id="s3" class="surprise-box hidden">
+          Es que cumplas todas tus metas y sueños.
+          Acompañarte en cada uno de tus momentos importantes.
+          Que seas inmensa mente feliz y te sientas amada
+        </div>
+
+        <div id="s4" class="surprise-box hidden">
+          Mi promesa para ti es seguir cuidándote, amarte y haciendo
+          todo lo posible para verte feliz. Quiero seguir creando momentos
+          contigo.
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:22px;">
+        <button class="btn" onclick="mostrarSeccion('timeline')">Ver nuestra historia 📖</button>
+      </div>
+    </section>
+
+    <section id="timeline" class="card hidden">
+      <h2>📖 Nuestra historia</h2>
+      <div class="timeline">
+        <div class="moment">
+          <b>Cómo empezó todo</b><br>
+          La primera vez que te vi, me pareciste interesante en todos los sentidos, mas cuando me acerque a ti y estabas toda nerviosa desplazando tu celular de un lado a otro y me dio tanta ternura y desde ahi supe que siempre tendria que cuidarte.
+        </div>
+
+        <div class="moment">
+          <b>Un momento especial</b><br>
+          Cuando te dije que fueras mi novia, para mi es un momento especial ya que la verdad estaba nervioso y no sabia como pedirtelo o si ibas a decir que no, pero no se mientras veiamos la pelicula hubo un momento que te vi y sabia que tenias que ser tu mi primer amor.
+        </div>
+
+        <div class="moment">
+          <b>Lo que sentí por ti</b><br>
+          Recuerdo nuestra segunda cita que fue en plaza eden que te invite a desayunar y nos quedamos en las banquitas de afuera platicando y senti por primera vez como mi corazon latia fuertemente por solo tenerte a mi lado.
+        </div>
+
+        <div class="moment">
+          <b>Hoy</b><br>
+          Hoy aprovecho este dia, para expresarte cuanto te amo y lo que significas para mi tenerte en mi vida.
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:22px;">
+        <button class="btn" onclick="mostrarSeccion('final')">Mensaje final ✨</button>
+      </div>
+    </section>
+
+    <section id="final" class="card hidden">
+      <h2>✨ Mensaje final</h2>
+      <div class="final-message">
+        <p>
+          Si pudiera pedir un deseo en este momento, seria tenerte a mi lado y que nunca te fueras ya que para mi eres y seras la luz que alumbre mi peor oscuridad..
+        </p>
+        <br>
+        <p>
+          Se que no soy mucho de decirlo pero gracias por todo lo que has echo por mi, y recuerda que siempre voy a estar para ti cuando mas lo necesites.
+        </p>
+        <br>
+        <p>
+          Feliz cumpleaños, mi amor. Tu es causa gaudii mei, lux in tenebris, et amor quem semper custodiam. 💛
+        </p>
+      </div>
+
+      <div class="signature">
+        Con todo mi amor, para ti 💖
+      </div>
+
+      <div class="music-note">
+        Eres mi mundo ✨
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    function mostrarSeccion(id){
+      document.getElementById(id).style.display = "block";
+      document.getElementById(id).scrollIntoView({behavior:"smooth"});
+    }
+
+    function toggleBox(id){
+      let box = document.getElementById(id);
+      if(box.style.display === "block"){
+        box.style.display = "none";
+      }else{
+        box.style.display = "block";
+      }
+    }
+
+    function actualizarContadorAmor(){
+      const startDate = new Date(2024, 5, 23);
+      const today = new Date();
+
+      const diffMs = today - startDate;
+      const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+      let months = (today.getFullYear() - startDate.getFullYear()) * 12;
+      months += today.getMonth() - startDate.getMonth();
+
+      let extraDays = today.getDate() - startDate.getDate();
+
+      if(extraDays < 0){
+        months--;
+        const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+        extraDays += prevMonth.getDate();
+      }
+
+      document.getElementById("loveDays").textContent = totalDays;
+      document.getElementById("loveMonths").textContent = months;
+      document.getElementById("loveExtraDays").textContent = extraDays;
+
+      document.getElementById("loveMessage").textContent =
+        "Desde el 23 de junio de 2024, cada día contigo ha sido parte de mi magia favorita 💛";
+    }
+
+    function actualizarCuentaRegresiva(){
+      const targetDate = new Date(2026, 5, 23, 0, 0, 0);
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if(diff <= 0){
+        document.getElementById("remainingDays").textContent = "0";
+        document.getElementById("remainingHours").textContent = "0";
+        document.getElementById("remainingMinutes").textContent = "0";
+        document.getElementById("anniversaryMessage").textContent =
+          "Ya llegaron a sus 2 años juntos 💛";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+      document.getElementById("remainingDays").textContent = days;
+      document.getElementById("remainingHours").textContent = hours;
+      document.getElementById("remainingMinutes").textContent = minutes;
+    }
+
+    const starsContainer = document.getElementById("stars");
+    for(let i=0; i<80; i++){
+      let star = document.createElement("div");
+      star.classList.add("star");
+      star.style.left = Math.random() * 100 + "%";
+      star.style.top = Math.random() * 100 + "%";
+      star.style.animationDelay = (Math.random() * 3) + "s";
+      star.style.opacity = Math.random();
+      starsContainer.appendChild(star);
+    }
+
+    const heartsContainer = document.getElementById("hearts");
+    for(let i=0; i<18; i++){
+      let heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "♥";
+      heart.style.left = Math.random() * 100 + "%";
+      heart.style.animationDuration = (8 + Math.random() * 8) + "s";
+      heart.style.animationDelay = (Math.random() * 8) + "s";
+      heart.style.fontSize = (14 + Math.random() * 16) + "px";
+      heartsContainer.appendChild(heart);
+    }
+
+    actualizarContadorAmor();
+    actualizarCuentaRegresiva();
+    setInterval(actualizarCuentaRegresiva, 60000);
+  </script>
+
+</body>
+</html>
